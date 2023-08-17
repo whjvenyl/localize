@@ -24,8 +24,8 @@ export function registerTranslation(...translation) {
     update();
 }
 export function update() {
-    documentDirection = document.documentElement.dir || 'ltr';
-    documentLanguage = document.documentElement.lang || navigator.language;
+    documentDirection = document.documentElement && document.documentElement.dir || 'ltr';
+    documentLanguage = document.documentElement && document.documentElement.lang || window && window.navigator && window.navigator.language ? window.navigator.language : 'en';
     [...connectedElements.keys()].map((el) => {
         if (typeof el.requestUpdate === 'function') {
             el.requestUpdate();
