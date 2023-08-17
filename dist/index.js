@@ -2,7 +2,7 @@ const connectedElements = new Set();
 const documentElementObserver = new MutationObserver(update);
 const translations = new Map();
 let documentDirection = document.documentElement && document.documentElement.dir || 'ltr';
-let documentLanguage = document.documentElement && document.documentElement.lang || window.navigator && window.navigator.language ? window.navigator.language : 'en';
+let documentLanguage = document.documentElement && document.documentElement.lang || window && window.navigator && window.navigator.language ? window.navigator.language : 'en';
 let fallback;
 documentElementObserver.observe(document.documentElement, {
     attributes: true,
