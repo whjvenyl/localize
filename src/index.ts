@@ -21,7 +21,7 @@ const connectedElements = new Set<HTMLElement>();
 const documentElementObserver = new MutationObserver(update);
 const translations: Map<string, Translation> = new Map();
 let documentDirection = document.documentElement && document.documentElement.dir || 'ltr';
-let documentLanguage = document.documentElement && document.documentElement.lang || navigator.language;
+let documentLanguage = document.documentElement && document.documentElement.lang || navigator && navigator.language ? navigator.language : 'en';
 let fallback: Translation;
 
 // Watch for changes on <html lang>
