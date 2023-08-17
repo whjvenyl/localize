@@ -20,8 +20,8 @@ export interface ExistsOptions {
 const connectedElements = new Set<HTMLElement>();
 const documentElementObserver = new MutationObserver(update);
 const translations: Map<string, Translation> = new Map();
-let documentDirection = document.documentElement.dir || 'ltr';
-let documentLanguage = document.documentElement.lang || navigator.language;
+let documentDirection = document.documentElement && document.documentElement.dir || 'ltr';
+let documentLanguage = document.documentElement && document.documentElement.lang || navigator.language;
 let fallback: Translation;
 
 // Watch for changes on <html lang>
